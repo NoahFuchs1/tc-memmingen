@@ -83,8 +83,13 @@ export function Header() {
               <Menu className="w-5 h-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left">
-            <div className="mt-4 space-y-4">
+          <SheetContent
+            side="left"
+            className="flex flex-col max-h-screen max-w-xs p-6 bg-white"
+            style={{ height: "100vh" }} // falls nötig
+          >
+            {/* Scrollbarer Container für Menü + Social */}
+            <div className="flex-grow overflow-y-auto space-y-6">
               {menu.map((m) => (
                 <div key={m.title}>
                   <div className="font-semibold mb-1">{m.title}</div>
@@ -102,14 +107,16 @@ export function Header() {
                   </ul>
                 </div>
               ))}
-              <div className="flex gap-4 pt-4">
-                <Button variant="ghost" size="icon">
-                  <Facebook className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Instagram className="w-5 h-5" />
-                </Button>
-              </div>
+            </div>
+
+            {/* Social Icons unten fixiert mit Abstand */}
+            <div className="flex gap-4 pt-4 border-t border-gray-200">
+              <Button variant="ghost" size="icon">
+                <Facebook className="w-5 h-5" />
+              </Button>
+              <Button variant="ghost" size="icon">
+                <Instagram className="w-5 h-5" />
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
