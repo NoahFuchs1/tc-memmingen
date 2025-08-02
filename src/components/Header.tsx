@@ -49,7 +49,9 @@ export function Header() {
       <div className="font-bold text-xl">MeinLogo</div>
 
       {/* Desktop Navigation */}
-      <NavFromShadcn />
+      <div className="hidden lg:block">
+        <NavFromShadcn />
+      </div>
 
       {/* Social Icons */}
       <div className="hidden lg:flex gap-3">

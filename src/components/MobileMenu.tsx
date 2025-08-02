@@ -16,7 +16,6 @@ export function MobileMenu() {
         <SheetContent
           side="left"
           className="flex flex-col max-h-screen max-w-xs p-6 bg-white"
-          style={{ height: "100vh" }}
         >
           {/* Scrollbarer Bereich für Menüitems */}
           <div className="flex-grow overflow-y-auto space-y-6">
@@ -37,8 +36,8 @@ export function MobileMenu() {
                   <>
                     <div className="font-semibold mb-1">{item.title}</div>
                     <ul className="pl-4 space-y-1">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
+                      {item.children.map((child, index) => (
+                        <li key={`${child.href}-${index}`}>
                           <Link
                             href={child.href}
                             className="text-sm text-gray-700 hover:underline block"

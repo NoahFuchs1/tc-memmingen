@@ -16,7 +16,7 @@ export const menuItems: MenuItem[] = [
   },
   { title: "About", href: "/about" },
   {
-    title: "Simple",
+    title: "Simples",
     children: [
       { text: "Components", href: "#" },
       { text: "Documentation", href: "#" },
