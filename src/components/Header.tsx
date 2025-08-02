@@ -10,27 +10,35 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
+import { DynamicNavigationMenu } from "./DynamicNavigationMenu";
+import { NavFromShadcn } from "./NavFromShadcn";
+import { MobileMenu } from "./MobileMenu";
 
-const menu = [
+type MenuItem = {
+  title: string;
+  href?: string; // Wenn vorhanden, dann kein Dropdown
+  children?: { text: string; href: string }[]; // Wenn vorhanden, Dropdown
+};
+
+const menuItems: MenuItem[] = [
+  { title: "Docs", href: "/docs" },
   {
-    title: "Produkte",
-    items: ["Supplemente", "Pakete", "Bestseller"],
+    title: "Simple",
+    children: [
+      { text: "Components", href: "#" },
+      { text: "Documentation", href: "#" },
+      { text: "Blocks", href: "#" },
+    ],
   },
+  { title: "About", href: "/about" }, // Beispiel für weiteren Link ohne Dropdown
   {
-    title: "Über uns",
-    items: ["Philosophie", "Team", "Kundenmeinungen"],
-  },
-  {
-    title: "Wissen",
-    items: ["Blog", "FAQ", "Glossar"],
-  },
-  {
-    title: "Kontakt",
-    items: ["Support", "Live-Chat", "Telefon"],
-  },
-  {
-    title: "Login",
-    items: ["Konto", "Registrieren", "Passwort"],
+    title: "Simple",
+    children: [
+      { text: "Components", href: "#" },
+      { text: "Documentation", href: "#" },
+      { text: "Blocks", href: "#" },
+    ],
   },
 ];
 
@@ -41,29 +49,7 @@ export function Header() {
       <div className="font-bold text-xl">MeinLogo</div>
 
       {/* Desktop Navigation */}
-      <NavigationMenu className="hidden lg:flex">
-        <NavigationMenuList>
-          {menu.map((m) => (
-            <NavigationMenuItem className="relative" key={m.title}>
-              <NavigationMenuTrigger>{m.title}</NavigationMenuTrigger>
-              <NavigationMenuContent className="absolute top-full left-0 mt-1 bg-white p-4 rounded-md shadow-lg z-50">
-                <ul className="grid gap-1 p-1">
-                  {m.items.map((item) => (
-                    <li key={item}>
-                      <Link
-                        href="#"
-                        className="block px-2 py-1 hover:bg-gray-100 rounded"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          ))}
-        </NavigationMenuList>
-      </NavigationMenu>
+      <NavFromShadcn />
 
       {/* Social Icons */}
       <div className="hidden lg:flex gap-3">
@@ -76,51 +62,7 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div className="lg:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
-              <Menu className="w-5 h-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="left"
-            className="flex flex-col max-h-screen max-w-xs p-6 bg-white"
-            style={{ height: "100vh" }} // falls nötig
-          >
-            {/* Scrollbarer Container für Menü + Social */}
-            <div className="flex-grow overflow-y-auto space-y-6">
-              {menu.map((m) => (
-                <div key={m.title}>
-                  <div className="font-semibold mb-1">{m.title}</div>
-                  <ul className="pl-2 space-y-1">
-                    {m.items.map((item) => (
-                      <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-sm text-gray-700 hover:underline"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Social Icons unten fixiert mit Abstand */}
-            <div className="flex gap-4 pt-4 border-t border-gray-200">
-              <Button variant="ghost" size="icon">
-                <Facebook className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Instagram className="w-5 h-5" />
-              </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
+      <MobileMenu />
     </header>
   );
 }
