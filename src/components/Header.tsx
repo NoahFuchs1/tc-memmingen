@@ -1,19 +1,8 @@
 // components/Header.tsx
-import Link from "next/link";
-import { Menu, ChevronDown, Facebook, Instagram } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
-import { DynamicNavigationMenu } from "./DynamicNavigationMenu";
-import { NavFromShadcn } from "./NavFromShadcn";
-import { MobileMenu } from "./MobileMenu";
+import { NavFromShadcn } from "./ui/NavFromShadcn";
+import { MobileMenu } from "./ui/MobileMenu";
+import Image from "next/image";
+import { SocialIcons } from "./ui/SocialIcons";
 
 type MenuItem = {
   title: string;
@@ -44,27 +33,30 @@ const menuItems: MenuItem[] = [
 
 export function Header() {
   return (
-    <header className="w-full px-4 py-3 border-b flex justify-between items-center bg-white sticky top-0 z-50">
-      {/* Logo */}
-      <div className="font-bold text-xl">MeinLogo</div>
+    <header className="w-full py-3 border-b bg-white sticky top-0 z-50">
+      <div className="max-w-7xl px-4 flex justify-between items-center mx-auto">
+        {/* Logo */}
+        <div className="font-bold text-xl">
+          <Image
+            src="/images/Logo.webp"
+            alt="Logo TCM"
+            width={40}
+            height={40}
+          />
+        </div>
 
-      {/* Desktop Navigation */}
-      <div className="hidden lg:block">
-        <NavFromShadcn />
+        {/* Desktop Navigation */}
+        <div className="hidden lg:block">
+          <NavFromShadcn />
+        </div>
+
+        <div className="hidden lg:block">
+          <SocialIcons />
+        </div>
+
+        {/* Mobile Menu */}
+        <MobileMenu />
       </div>
-
-      {/* Social Icons */}
-      <div className="hidden lg:flex gap-3">
-        <Button variant="ghost" size="icon">
-          <Facebook className="w-5 h-5" />
-        </Button>
-        <Button variant="ghost" size="icon">
-          <Instagram className="w-5 h-5" />
-        </Button>
-      </div>
-
-      {/* Mobile Menu */}
-      <MobileMenu />
     </header>
   );
 }

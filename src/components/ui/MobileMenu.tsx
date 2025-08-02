@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Facebook, Instagram } from "lucide-react"; // Icons Beispiel
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetHeader,
+  SheetDescription,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react"; // Icons Beispiel
 import { menuItems } from "./menuItems"; // Pfad anpassen
+import { SocialIcons } from "./SocialIcons";
 
 export function MobileMenu() {
   return (
@@ -17,6 +25,9 @@ export function MobileMenu() {
           side="left"
           className="flex flex-col max-h-screen max-w-xs p-6 bg-white"
         >
+          <SheetHeader className="hidden">
+            <SheetTitle>Mobiles Menü</SheetTitle>
+          </SheetHeader>
           {/* Scrollbarer Bereich für Menüitems */}
           <div className="flex-grow overflow-y-auto space-y-6">
             {menuItems.map((item) => (
@@ -54,13 +65,8 @@ export function MobileMenu() {
           </div>
 
           {/* Social Icons unten fixiert mit Abstand */}
-          <div className="flex gap-4 pt-4 border-t border-gray-200">
-            <Button variant="ghost" size="icon" aria-label="Facebook">
-              <Facebook className="w-5 h-5" />
-            </Button>
-            <Button variant="ghost" size="icon" aria-label="Instagram">
-              <Instagram className="w-5 h-5" />
-            </Button>
+          <div className="flex pt-4 border-t border-gray-200">
+            <SocialIcons />
           </div>
         </SheetContent>
       </Sheet>
