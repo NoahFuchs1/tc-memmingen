@@ -1,19 +1,35 @@
 import { client } from "@/sanity/client";
 import { heroQuery } from "@/sanity/queries";
-import { Header } from "../components/Header";
+import { Header } from "../components/layout/Header";
 
-type Hero = {
-  title: string;
-  h1: string;
-};
+import SponsorCarousel from "../components/SponsorCarousel";
+import Hero from "../components/HeroSection";
+import NewsSection from "../components/NewsSection";
+import AboutSection from "../components/AboutSection";
+import FacilitiesSection from "../components/FacilitiesSection";
+import MembershipCTASection from "../components/MembershipCTASection";
+import Footer from "../components/layout/Footer";
 
 export default async function Home() {
-  const hero: Hero = await client.fetch(heroQuery);
+  const hero = await client.fetch(heroQuery);
 
   return (
-    <>
-    <Header />
-    <div className="text-5xl italic">Hallo</div>
-    </>
+    <div className="min-h-screen">
+      <Header />
+
+      <Hero />
+
+      <NewsSection />
+
+      <AboutSection />
+
+      <FacilitiesSection />
+
+      <MembershipCTASection />
+
+      <SponsorCarousel />
+
+      <Footer />
+    </div>
   );
 }
