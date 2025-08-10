@@ -115,13 +115,13 @@ Besonders freuen wir uns, dass wir für die Senioren zusätzliche Trainingszeite
   // Add other articles here...
 ];
 
-interface PageProps {
+interface NewsPageProps {
   params: {
     id: string;
   };
 }
 
-export default function ArticlePage({ params }: PageProps) {
+export default function ArticlePage({ params }: NewsPageProps) {
   const article = newsArticles.find((a) => a.id === Number.parseInt(params.id));
 
   if (!article) {
