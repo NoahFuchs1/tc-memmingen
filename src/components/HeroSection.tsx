@@ -16,12 +16,8 @@ export default function Hero({ heroSection }: any) {
         <source src={videoHero} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/60"></div>
-      <div className="relative z-10 text-center text-white max-w-4xl px-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">{h1Hero}</h1>
-        <p className="text-xl md:text-2xl mb-8 opacity-90">
-          Tradition trifft Leidenschaft - Ihr Tennisverein im Herzen von
-          Memmingen
-        </p>
+      <div className="relative z-10 text-center text-white max-w-6xl px-4">
+        <h1 className="text-4xl md:text-5xl mb-6">{h1Hero}</h1>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             size="lg"

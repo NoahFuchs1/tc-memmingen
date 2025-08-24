@@ -129,9 +129,9 @@
   margin-inline: auto;   /* zentrieren */
   padding-inline: 1rem;  /* DEFAULT */
 
-  @variant sm  { padding-inline: 2rem; max-width: 10rem; }
-  @variant md  { max-width: 10rem; }
-  @variant lg  { max-width: 40rem; }
-  @variant xl  { max-width: 80rem; }
-  @variant 2xl { max-width: 82rem; }
+  @variant sm  { padding-inline: 2rem; max-width: 640px; }
+  @variant md  { max-width: 768px; }
+  @variant lg  { max-width: 1024px; }
+  @variant xl  { max-width: 1180px; }
+  @variant 2xl { max-width: 1280px; }
 }
