@@ -5,7 +5,7 @@ export default function Hero(heroSection: HeroSection) {
   const { h1Hero, videoHero, buttonLinksHero, buttonRechtsHero } = heroSection;
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
       <video
         autoPlay
         loop
