@@ -1,6 +1,6 @@
 import type { PortableTextBlock } from '@portabletext/types';
 
-export interface NewsSection {
+export interface NewsSectionType {
     h1NewsSection: string;
     subHeadlineNewsSection: string;
     newsNewsSection: News[];

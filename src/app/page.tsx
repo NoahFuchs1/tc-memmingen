@@ -28,9 +28,9 @@ export default async function Home() {
 
       <Hero {...heroSection} />
 
-      <NewsSection newsSection={newsSection} />
+      <NewsSection {...newsSection} />
 
-      <AboutSection introductionSection={introductionSection} />
+      <AboutSection {...introductionSection} />
 
       <FacilitiesSection />
 

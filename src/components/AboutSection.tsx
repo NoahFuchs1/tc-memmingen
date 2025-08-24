@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import SanityText from "./ui/SanityText";
+import { introductionSection } from "../types/introductionSection";
 
-export default function AboutSection({ introductionSection }: any) {
+export default function AboutSection(introductionSection: introductionSection) {
   const { h1IntroductionSection, image, textIntroductionSection } =
     introductionSection;
 
@@ -24,7 +25,7 @@ export default function AboutSection({ introductionSection }: any) {
               Vereinsleben bieten wir optimale Bedingungen für Anfänger und
               Profis gleichermaßen.
             </p>
-            <SanityText blocks={textIntroductionSection} />
+            <SanityText {...textIntroductionSection} />
             <Button className="bg-red-600 hover:bg-red-700">
               Mitglied werden
             </Button>

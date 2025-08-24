@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import SanityText from "./ui/SanityText";
+import { NewsSectionType } from "../types/newsSection";
+import { PortableTextBlock } from "next-sanity";
 
-export default function NewsSection({ newsSection }: any) {
+export default function NewsSection(newsSection: NewsSectionType) {
   const { h1NewsSection, subHeadlineNewsSection, newsNewsSection } =
     newsSection;
 
@@ -40,7 +42,7 @@ export default function NewsSection({ newsSection }: any) {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-4">
-                  <SanityText blocks={truncateBlocks(item.content)} />
+                  <SanityText {...truncateBlocks(item.content)} />
                 </CardDescription>
                 <Button variant="outline" size="sm">
                   Weiterlesen
@@ -53,7 +55,7 @@ export default function NewsSection({ newsSection }: any) {
     </section>
   );
 
-  function truncateBlocks(blocks: any, maxWords = 20) {
+  function truncateBlocks(blocks: PortableTextBlock[], maxWords = 20) {
     let wordCount = 0;
     const truncated = [];
 
