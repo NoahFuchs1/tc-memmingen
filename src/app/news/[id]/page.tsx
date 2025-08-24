@@ -295,7 +295,7 @@ export default async function ArticlePage({
             <span className="font-bold">TC Memmingen</span>
           </div>
           <p className="text-gray-400 text-sm">
-            &copy; 2024 TC Memmingen. Alle Rechte vorbehalten.
+            &copy; 2025 TC Memmingen. Alle Rechte vorbehalten.
           </p>
         </div>
       </footer>

@@ -1,7 +1,12 @@
 type MenuItem = {
   title: string;
   href?: string; // Wenn vorhanden, dann kein Dropdown
-  children?: { text: string; href: string }[]; // Wenn vorhanden, Dropdown
+  children?: 
+  { 
+    text: string; 
+    href: string;
+    isNewTab?: boolean; 
+  }[]; // Wenn vorhanden, Dropdown
 };
 
 export const menuItems: MenuItem[] = [
@@ -16,16 +21,16 @@ export const menuItems: MenuItem[] = [
   {
     title: "Tennisangebote",
     children: [
-      { text: "Platz buchen", href: "#" },
+      { text: "Platz buchen", href: "https://tc-memmingen.tennisplatz.info/reservierung", isNewTab: true },
       { text: "Mitglied werden", href: "#" },
-      { text: "Tennisbase Elsner", href: "#" },
+      { text: "Tennisbase Elsner", href: "https://tennisbasedanielelsner.de/", isNewTab: true },
     ],
   },
   {
     title: "Mannschaften",
     children: [
-      { text: "Spielpläne", href: "#" },
       { text: "Tabellen", href: "#" },
+      { text: "Mannschaften", href: "#" },
     ],
   },
   {
@@ -39,9 +44,9 @@ export const menuItems: MenuItem[] = [
   {
     title: "Links",
     children: [
-      { text: "Vereinsgastätte Juro Grill", href: "#" },
-      { text: "ATG Tennis", href: "#" },
-      { text: "BTV Tennis", href: "#" },
+      { text: "Vereinsgastätte Juro Grill", href: "https://www.facebook.com/people/Juro-Grillhaus/100083868033268/", isNewTab: true },
+      { text: "ATG Tennis", href: "https://www.atg-mm.de/", isNewTab: true },
+      { text: "BTV Tennis", href: "https://www.btv.de/de/mein-verein/vereinsseite/tc-memmingen.html#Mannschaften", isNewTab: true },
     ],
   },
 ];

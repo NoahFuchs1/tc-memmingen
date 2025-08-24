@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { SanityClient } from "next-sanity";
 import Image from "next/image";
 import SanityText from "./ui/SanityText";
 

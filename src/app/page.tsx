@@ -14,10 +14,11 @@ import {
   homepageNewsQuery,
   sponsorsQurey,
 } from "@/sanity/queries";
+import { HeroSection } from "../types/heroSection";
 
 export default async function Home() {
   const sponsors = await client.fetch(sponsorsQurey);
-  const heroSection = await client.fetch(homepageHeroQuery);
+  const heroSection: HeroSection = await client.fetch(homepageHeroQuery);
   const newsSection = await client.fetch(homepageNewsQuery);
   const introductionSection = await client.fetch(homepageIntroductionQuery);
 
@@ -25,7 +26,7 @@ export default async function Home() {
     <div className="min-h-screen">
       <Header />
 
-      <Hero heroSection={heroSection} />
+      <Hero {...heroSection} />
 
       <NewsSection newsSection={newsSection} />
 

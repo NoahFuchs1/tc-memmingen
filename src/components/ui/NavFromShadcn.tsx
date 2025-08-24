@@ -27,7 +27,11 @@ export function NavFromShadcn() {
                   {item.children.map((child, childIndex) => (
                     <li key={`child-${childIndex}-${child.href}`}>
                       <NavigationMenuLink asChild>
-                        <Link href={child.href}>{child.text}</Link>
+                        {getLink(
+                          child.href,
+                          child.text,
+                          child.isNewTab ?? false
+                        )}
                       </NavigationMenuLink>
                     </li>
                   ))}
@@ -40,7 +44,7 @@ export function NavFromShadcn() {
                 asChild
                 className={navigationMenuTriggerStyle()}
               >
-                <Link href={item.href!}>{item.title}</Link>
+                {getLink(item.href!, item.title, false)}
               </NavigationMenuLink>
             </NavigationMenuItem>
           )
@@ -48,4 +52,16 @@ export function NavFromShadcn() {
       </NavigationMenuList>
     </NavigationMenu>
   );
+
+  function getLink(link: string, title: string, isNewTab: boolean) {
+    return (
+      <Link
+        href={link}
+        target={isNewTab ? "_blank" : "_self"}
+        rel={isNewTab ? "noopener noreferrer" : undefined}
+      >
+        {title}
+      </Link>
+    );
+  }
 }

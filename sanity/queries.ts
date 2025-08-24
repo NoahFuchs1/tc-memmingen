@@ -8,13 +8,11 @@ export const sponsorsQurey = groq`*[_type == "sponsorsListDocument"][0].sponsors
     url,
   }`
 
-export const homepageHeroQuery = groq`*[_type == "homepage"][0]{
-  heroSection{
-      h1Hero,
-      buttonLinksHero,
-      buttonRechtsHero, 
-      "videoHero": videoHero.asset->url,
-    },
+export const homepageHeroQuery = groq`*[_type == "homepage"][0].heroSection {
+    h1Hero,
+    buttonLinksHero,
+    buttonRechtsHero, 
+    "videoHero": videoHero.asset->url,
 }
 `
 

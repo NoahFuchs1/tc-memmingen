@@ -4,11 +4,23 @@ import { SiFacebook, SiInstagram } from "react-icons/si";
 export function SocialIcons() {
   return (
     <div className="flex gap-3">
-      <Button variant="ghost" size="icon">
-        <SiFacebook />
+      <Button asChild variant="ghost" size="icon">
+        <a
+          href="https://www.facebook.com/tcmemmingen/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SiFacebook />
+        </a>
       </Button>
-      <Button variant="ghost" size="icon">
-        <SiInstagram />
+      <Button asChild variant="ghost" size="icon">
+        <a
+          href="https://www.instagram.com/tcmemmingenev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SiInstagram />
+        </a>
       </Button>
     </div>
   );

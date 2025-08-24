@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { HeroSection } from "../types/heroSection";
 
-export default function Hero({ heroSection }: any) {
-  const { h1Hero, videoHero, buttonLinksHero, buttonRechtsHero } =
-    heroSection.heroSection;
+export default function Hero(heroSection: HeroSection) {
+  const { h1Hero, videoHero, buttonLinksHero, buttonRechtsHero } = heroSection;
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
