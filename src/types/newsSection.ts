@@ -6,12 +6,12 @@ export interface NewsSectionType {
     newsNewsSection: News[];
 }
 
-interface News {
+export interface News {
     _id: string;
     title: string;
     date: string;
     category: Category;
-    content: PortableTextBlock;
+    content: PortableTextBlock[];
 }
 
 interface Category {

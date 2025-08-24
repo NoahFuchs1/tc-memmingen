@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import SanityText from "./ui/SanityText";
-import { NewsSectionType } from "../types/newsSection";
+import { News, NewsSectionType } from "../types/newsSection";
 import { PortableTextBlock } from "next-sanity";
 
 export default function NewsSection(newsSection: NewsSectionType) {
@@ -28,7 +28,7 @@ export default function NewsSection(newsSection: NewsSectionType) {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newsNewsSection.map((item: any) => (
+          {newsNewsSection.map((item: News) => (
             <Card key={item._id} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
