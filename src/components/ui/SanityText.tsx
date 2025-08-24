@@ -1,5 +1,9 @@
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 
-export default function SanityText(blocks: PortableTextBlock[]) {
+type SanityTextProps = {
+  blocks: PortableTextBlock[];
+};
+
+export default function SanityText({ blocks }: SanityTextProps) {
   return <PortableText value={blocks} />;
 }

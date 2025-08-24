@@ -42,7 +42,7 @@ export default function NewsSection(newsSection: NewsSectionType) {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base mb-4">
-                  <SanityText {...truncateBlocks(item.content)} />
+                  <SanityText blocks={truncateBlocks(item.content)} />
                 </CardDescription>
                 <Button variant="outline" size="sm">
                   Weiterlesen
@@ -84,7 +84,6 @@ export default function NewsSection(newsSection: NewsSectionType) {
       truncated.push({ ...block, children: newChildren });
       if (wordCount >= maxWords) break;
     }
-
     return truncated;
   }
 }
