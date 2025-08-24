@@ -15,17 +15,7 @@ export default function AboutSection(introductionSection: introductionSection) {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {h1IntroductionSection}
             </h2>
-            <p className="text-gray-600 text-lg mb-6">
-              Seit über 50 Jahren ist der TC Memmingen eine feste Größe im
-              regionalen Tennis. Unser Verein steht für Tradition, Gemeinschaft
-              und die Förderung des Tennissports für alle Altersgruppen.
-            </p>
-            <p className="text-gray-600 text-lg mb-8">
-              Mit modernen Anlagen, qualifizierten Trainern und einem lebendigen
-              Vereinsleben bieten wir optimale Bedingungen für Anfänger und
-              Profis gleichermaßen.
-            </p>
-            <SanityText {...textIntroductionSection} />
+            <SanityText blocks={textIntroductionSection} />
             <Button className="bg-red-600 hover:bg-red-700">
               Mitglied werden
             </Button>

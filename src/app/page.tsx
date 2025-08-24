@@ -15,6 +15,7 @@ import {
   sponsorsQurey,
 } from "@/sanity/queries";
 import { HeroSection } from "../types/heroSection";
+import SponsorSlider from "../components/SponsorsSlider2";
 
 export default async function Home() {
   const sponsors = await client.fetch(sponsorsQurey);
@@ -37,6 +38,8 @@ export default async function Home() {
       <MembershipCTASection />
 
       <SponsorCarousel sponsors={sponsors} />
+
+      <SponsorSlider sponsors={sponsors} />
 
       <Footer />
     </div>
