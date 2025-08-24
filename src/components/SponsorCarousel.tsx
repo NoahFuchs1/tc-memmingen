@@ -4,59 +4,9 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Sponsor, Sponsors } from "../types/sponsors";
 
-const sponsors = [
-  {
-    id: 1,
-    name: "SportMax Memmingen",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://sportmax-memmingen.de",
-  },
-  {
-    id: 2,
-    name: "Allgäuer Volksbank",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://allgaeuer-volksbank.de",
-  },
-  {
-    id: 3,
-    name: "Hotel Weisses Ross",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://weisses-ross-memmingen.de",
-  },
-  {
-    id: 4,
-    name: "Bäckerei Müller",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://baeckerei-mueller.de",
-  },
-  {
-    id: 5,
-    name: "Autohaus Schmidt",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://autohaus-schmidt.de",
-  },
-  {
-    id: 6,
-    name: "Physiotherapie Aktiv",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://physio-aktiv-memmingen.de",
-  },
-  {
-    id: 7,
-    name: "Stadtwerke Memmingen",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://stadtwerke-memmingen.de",
-  },
-  {
-    id: 8,
-    name: "Restaurant Tennisklause",
-    logo: "/placeholder.svg?height=80&width=160",
-    website: "https://tennisklause-memmingen.de",
-  },
-];
-
-export default function SponsorCarousel() {
+export default function SponsorCarousel({ sponsors }: Sponsors) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -134,14 +84,14 @@ export default function SponsorCarousel() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 25}%)` }}
             >
-              {sponsors.map((sponsor) => (
-                <div key={sponsor.id} className="flex-shrink-0 w-1/4 px-4">
+              {sponsors.map((sponsor: Sponsor) => (
+                <div key={sponsor._id} className="flex-shrink-0 w-1/4 px-4">
                   <div
                     className="bg-white border border-gray-200 rounded-lg p-6 h-32 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow group"
-                    onClick={() => handleSponsorClick(sponsor.website)}
+                    onClick={() => handleSponsorClick(sponsor.url)}
                   >
                     <Image
-                      src={sponsor.logo || "/placeholder.svg"}
+                      src={sponsor.imageUrl}
                       alt={sponsor.name}
                       width={160}
                       height={80}

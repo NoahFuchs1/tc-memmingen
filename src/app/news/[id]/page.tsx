@@ -118,10 +118,10 @@ Besonders freuen wir uns, dass wir für die Senioren zusätzliche Trainingszeite
 export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ id: string }>;
 }) {
-  const { slug } = await params;
-  const article = newsArticles.find((a) => a.id === Number(slug));
+  const { id } = await params;
+  const article = newsArticles.find((a) => a.id === Number(id));
 
   if (!article) {
     notFound();

@@ -3,6 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -119,4 +120,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+
+@utility container {
+  width: 100%;
+  margin-inline: auto;   /* zentrieren */
+  padding-inline: 1rem;  /* DEFAULT */
+
+  @variant sm  { padding-inline: 2rem; max-width: 10rem; }
+  @variant md  { max-width: 10rem; }
+  @variant lg  { max-width: 40rem; }
+  @variant xl  { max-width: 80rem; }
+  @variant 2xl { max-width: 82rem; }
 }

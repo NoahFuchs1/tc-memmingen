@@ -1,5 +1,4 @@
 import { client } from "@/sanity/client";
-import { heroQuery } from "@/sanity/queries";
 import { Header } from "../components/layout/Header";
 
 import SponsorCarousel from "../components/SponsorCarousel";
@@ -9,25 +8,34 @@ import AboutSection from "../components/AboutSection";
 import FacilitiesSection from "../components/FacilitiesSection";
 import MembershipCTASection from "../components/MembershipCTASection";
 import Footer from "../components/layout/Footer";
+import {
+  homepageHeroQuery,
+  homepageIntroductionQuery,
+  homepageNewsQuery,
+  sponsorsQurey,
+} from "@/sanity/queries";
 
 export default async function Home() {
-  const hero = await client.fetch(heroQuery);
+  const sponsors = await client.fetch(sponsorsQurey);
+  const heroSection = await client.fetch(homepageHeroQuery);
+  const newsSection = await client.fetch(homepageNewsQuery);
+  const introductionSection = await client.fetch(homepageIntroductionQuery);
 
   return (
     <div className="min-h-screen">
       <Header />
 
-      <Hero />
+      <Hero heroSection={heroSection} />
 
-      <NewsSection />
+      <NewsSection newsSection={newsSection} />
 
-      <AboutSection />
+      <AboutSection introductionSection={introductionSection} />
 
       <FacilitiesSection />
 
       <MembershipCTASection />
 
-      <SponsorCarousel />
+      <SponsorCarousel sponsors={sponsors} />
 
       <Footer />
     </div>
