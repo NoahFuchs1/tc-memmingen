@@ -29,16 +29,17 @@ export const menuItems: MenuItem[] = [
   {
     title: "Mannschaften",
     children: [
-      { text: "Tabellen", href: "#" },
-      { text: "Mannschaften", href: "#" },
+      { text: "Tabellen", href: "/tabellen" },
+      { text: "Mannschaften", href: "/mannschaften" },
     ],
   },
   {
     title: "Über den TCM",
     children: [
-      { text: "Motto & Geschichte", href: "#" },
-      { text: "Vorstand & Beirat", href: "#" },
-      { text: "Kontakt", href: "#" },
+      { text: "Motto & Geschichte", href: "/motto-und-geschichte" },
+      { text: "Vorstand & Beirat", href: "/vorstand-und-beirat" },
+      { text: "Kontakt", href: "/kontakt" },
+      { text: "Sponsoren", href: "/sponsoren" },
     ],
   },
   {
@@ -49,4 +50,8 @@ export const menuItems: MenuItem[] = [
       { text: "BTV Tennis", href: "https://www.btv.de/de/mein-verein/vereinsseite/tc-memmingen.html#Mannschaften", isNewTab: true },
     ],
   },
+  {
+    title: "TCM Shop", 
+    href: "/tcm-shop"
+  }
 ];

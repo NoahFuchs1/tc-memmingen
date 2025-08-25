@@ -32,10 +32,6 @@ export default async function Home() {
 
       <AboutSection {...introductionSection} />
 
-      <FacilitiesSection />
-
-      <MembershipCTASection />
-
       <SponsorCarousel sponsors={sponsors} />
 
       <Footer />

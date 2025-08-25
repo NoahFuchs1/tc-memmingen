@@ -3,6 +3,7 @@ import { NavFromShadcn } from "../ui/NavFromShadcn";
 import { MobileMenu } from "../ui/MobileMenu";
 import Image from "next/image";
 import { SocialIcons } from "../ui/SocialIcons";
+import Link from "next/link";
 
 export function Header() {
   return (
@@ -10,12 +11,14 @@ export function Header() {
       <div className="container px-4 flex justify-between items-center mx-auto">
         {/* Logo */}
         <div className="font-bold text-xl">
-          <Image
-            src="/images/Logo.webp"
-            alt="Logo TCM"
-            width={40}
-            height={40}
-          />
+          <Link href="/">
+            <Image
+              src="/images/Logo.webp"
+              alt="Logo TCM"
+              width={40}
+              height={40}
+            />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}

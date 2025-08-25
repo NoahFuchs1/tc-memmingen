@@ -44,6 +44,11 @@ export default function SponsorCarousel({ sponsors }: Sponsors) {
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             loop={true}
+            breakpoints={{
+              640: { slidesPerView: 3 },
+              768: { slidesPerView: 4 },
+              1024: { slidesPerView: 5 },
+            }}
             className="!pb-12"
           >
             {sponsors.map((sponsor: Sponsor) => (
