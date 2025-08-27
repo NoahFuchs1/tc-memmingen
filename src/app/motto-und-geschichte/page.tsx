@@ -80,7 +80,8 @@ export default function MottoGeschichtePage() {
             🏆 Über uns – Der TC Memmingen e.V.
           </h1>
           <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-            Der Tennisclub Memmingen e.V. ist der älteste und größte
+            Tradition trifft Moderne – seit 1928
+            <br /> Der Tennisclub Memmingen e.V. ist der älteste und größte
             Tennisverein der Stadt. Mit einer beinahe 100-jährigen Geschichte
             steht der TCM für eine lebendige Tennis-Tradition und modernes
             Clubleben auf höchstem Niveau.
