@@ -1,3 +1,4 @@
+import Footer from "@/src/components/layout/Footer";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -102,6 +103,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Footer from "@/src/components/layout/Footer";
 import { Header } from "@/src/components/layout/Header";
 import Image from "next/image";
 
@@ -17,6 +18,7 @@ export default function VorstandUndBeirat() {
           className="w-full h-full object-cover"
         />
       </div>
+      <Footer></Footer>
     </>
   );
 }

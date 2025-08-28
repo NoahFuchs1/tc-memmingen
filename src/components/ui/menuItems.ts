@@ -22,7 +22,7 @@ export const menuItems: MenuItem[] = [
     title: "Tennisangebote",
     children: [
       { text: "Platz buchen", href: "https://tc-memmingen.tennisplatz.info/reservierung", isNewTab: true },
-      { text: "Mitglied werden", href: "#" },
+      { text: "Mitglied werden", href: "/mitglied-werden" },
       { text: "Tennisbase Elsner", href: "https://tennisbasedanielelsner.de/", isNewTab: true },
     ],
   },

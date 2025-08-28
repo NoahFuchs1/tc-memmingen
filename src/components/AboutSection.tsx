@@ -8,7 +8,7 @@ export default function AboutSection(introductionSection: introductionSection) {
     introductionSection;
 
   return (
-    <section className="py-16">
+    <section className="py-16 bg-blue-100">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
