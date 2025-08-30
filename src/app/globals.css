@@ -141,13 +141,13 @@
 
 
 @layer base {
-  h1 {
+  .h-tag-wrapper h1 {
     @apply text-4xl font-bold mt-5 mb-1;
   }
-  h2 {
+  .h-tag-wrapper h2 {
     @apply text-3xl font-semibold mt-5 mb-1;
   }
-  h3 {
+  .h-tag-wrapper h3 {
     @apply text-2xl font-medium mt-5 mb-1;
   }
 }

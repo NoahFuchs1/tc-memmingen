@@ -6,7 +6,7 @@ export default function MitgliedWerden() {
   return (
     <>
       <Header></Header>
-      <div className="container">
+      <div className="container h-tag-wrapper my-10">
         <h2>Datenschutzerklärung</h2>
         <p>
           Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und

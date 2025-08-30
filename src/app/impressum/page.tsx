@@ -6,7 +6,7 @@ export default function MitgliedWerden() {
   return (
     <>
       <Header></Header>
-      <div className="container">
+      <div className="container h-tag-wrapper my-10">
         <h2>Impressum</h2>
         <h3>Angaben gemäß § 5 TMG:</h3>
         <p>
