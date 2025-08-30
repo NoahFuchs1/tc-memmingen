@@ -14,6 +14,9 @@ import Footer from "@/src/components/layout/Footer";
 import { Header } from "@/src/components/layout/Header";
 import { newsQuery } from "@/sanity/queries";
 import { client } from "@/sanity/client";
+import SanityText from "@/src/components/ui/SanityText";
+import truncateBlocks from "@/src/utils/helper";
+import { News } from "@/src/types/newsSection";
 
 const newsArticles = [
   {
@@ -199,110 +202,27 @@ export default async function NewsPage() {
           </p>
         </div>
 
-        {/* Featured Article */}
-        {featuredArticle && (
-          <div className="mb-12">
-            <Badge className="mb-4 bg-red-600 hover:bg-red-700">Featured</Badge>
-            <Card className="overflow-hidden">
-              {featuredArticle.image && (
-                <div className="relative h-64 md:h-80">
-                  <Image
-                    src={featuredArticle.image || "/placeholder.svg"}
-                    alt={featuredArticle.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
-                  <Badge variant="secondary">{featuredArticle.category}</Badge>
-                  <span className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    {featuredArticle.date}
-                  </span>
-                  <span className="flex items-center">
-                    <User className="h-4 w-4 mr-1" />
-                    {featuredArticle.author}
-                  </span>
-                  <span className="flex items-center">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {featuredArticle.readTime}
-                  </span>
-                </div>
-                <CardTitle className="text-2xl md:text-3xl mb-4">
-                  {featuredArticle.title}
-                </CardTitle>
-                <CardDescription className="text-base">
-                  {featuredArticle.excerpt}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="prose max-w-none text-gray-700 whitespace-pre-line mb-6">
-                  {featuredArticle.content}
-                </div>
-                <Link href={`/news/${featuredArticle.id}`}>
-                  <Button className="bg-red-600 hover:bg-red-700">
-                    Vollständigen Artikel lesen
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
         {/* Regular Articles Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {news.map((article: any) => (
-            <Card
-              key={article.id}
-              className="hover:shadow-lg transition-shadow overflow-hidden"
-            >
-              {article.image && (
-                <div className="relative h-48">
-                  <Image
-                    src={article.image || "/placeholder.svg"}
-                    alt={article.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <CardHeader className="pb-3">
+          {news.map((item: News) => (
+            <Card key={item._id} className="hover:shadow-lg transition-shadow">
+              <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary">{article.category}</Badge>
-                  <span className="text-xs text-gray-500 flex items-center">
-                    <Clock className="h-3 w-3 mr-1" />
-                    {article.readTime}
+                  <Badge variant="secondary">{item.category.category}</Badge>
+                  <span className="text-sm text-gray-500 flex items-center">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    {item.date}
                   </span>
                 </div>
-                <CardTitle className="text-lg line-clamp-2">
-                  {article.title}
-                </CardTitle>
+                <CardTitle className="text-xl">{item.title}</CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
-                <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                  <span className="flex items-center">
-                    <Calendar className="h-3 w-3 mr-1" />
-                    {article.date}
-                  </span>
-                  <span className="flex items-center">
-                    <User className="h-3 w-3 mr-1" />
-                    {article.author}
-                  </span>
-                </div>
-                <CardDescription className="text-sm mb-4 line-clamp-3">
-                  {article.excerpt}
+              <CardContent>
+                <CardDescription className="text-base mb-4">
+                  <SanityText blocks={truncateBlocks(item.content)} />
                 </CardDescription>
-                <Link href={`/news/${article.id}`}>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full bg-transparent"
-                  >
-                    Artikel lesen
-                  </Button>
-                </Link>
+                <Button variant="outline" size="sm">
+                  Weiterlesen
+                </Button>
               </CardContent>
             </Card>
           ))}

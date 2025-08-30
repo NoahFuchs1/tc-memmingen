@@ -10,7 +10,7 @@ import {
 import { Calendar } from "lucide-react";
 import SanityText from "./ui/SanityText";
 import { News, NewsSectionType } from "../types/newsSection";
-import { PortableTextBlock } from "next-sanity";
+import truncateBlocks from "../utils/helper";
 
 export default function NewsSection(newsSection: NewsSectionType) {
   const { h1NewsSection, subHeadlineNewsSection, newsNewsSection } =
@@ -54,36 +54,4 @@ export default function NewsSection(newsSection: NewsSectionType) {
       </div>
     </section>
   );
-
-  function truncateBlocks(blocks: PortableTextBlock[], maxWords = 20) {
-    let wordCount = 0;
-    const truncated = [];
-
-    for (const block of blocks) {
-      if (block._type !== "block") continue;
-      const newChildren = [];
-
-      for (const child of block.children) {
-        const words = child.text.split(/\s+/);
-        if (wordCount + words.length <= maxWords) {
-          newChildren.push(child);
-          wordCount += words.length;
-        } else {
-          const remaining = maxWords - wordCount;
-          if (remaining > 0) {
-            newChildren.push({
-              ...child,
-              text: words.slice(0, remaining).join(" ") + " ...",
-            });
-          }
-          wordCount = maxWords;
-          break;
-        }
-      }
-
-      truncated.push({ ...block, children: newChildren });
-      if (wordCount >= maxWords) break;
-    }
-    return truncated;
-  }
 }
