@@ -136,3 +136,18 @@
   @variant 2xl { max-width: 1280px; }
 }
 
+
+
+
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold mt-5 mb-1;
+  }
+  h2 {
+    @apply text-3xl font-semibold mt-5 mb-1;
+  }
+  h3 {
+    @apply text-2xl font-medium mt-5 mb-1;
+  }
+}
