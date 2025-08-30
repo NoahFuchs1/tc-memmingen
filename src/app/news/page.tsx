@@ -12,6 +12,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/src/components/layout/Footer";
 import { Header } from "@/src/components/layout/Header";
+import { newsQuery } from "@/sanity/queries";
+import { client } from "@/sanity/client";
 
 const newsArticles = [
   {
@@ -176,9 +178,10 @@ Vielen Dank an alle Mitglieder für ihr Engagement und Vertrauen!`,
   },
 ];
 
-export default function NewsPage() {
+export default async function NewsPage() {
   const featuredArticle = newsArticles.find((article) => article.featured);
-  const regularArticles = newsArticles.filter((article) => !article.featured);
+
+  const news = await client.fetch(newsQuery);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -250,7 +253,7 @@ export default function NewsPage() {
 
         {/* Regular Articles Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularArticles.map((article) => (
+          {news.map((article: any) => (
             <Card
               key={article.id}
               className="hover:shadow-lg transition-shadow overflow-hidden"
@@ -303,13 +306,6 @@ export default function NewsPage() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="px-8 bg-transparent">
-            Weitere Artikel laden
-          </Button>
         </div>
       </div>
 

@@ -33,6 +33,18 @@ export const homepageNewsQuery = groq`*[_type == "homepage"][0].newsSection{
     }
 `
 
+export const newsQuery = groq`*[_type == "news"] {
+    _id, 
+    title, 
+    date, 
+    category -> {
+      _id, 
+      category,
+    }, 
+    content, 
+}
+`
+
 export const homepageIntroductionQuery = groq`*[_type == "homepage"][0].introductionSection{
       h1IntroductionSection,
       textIntroductionSection,
