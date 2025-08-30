@@ -221,7 +221,7 @@ export default async function NewsPage() {
                   <SanityText blocks={truncateBlocks(item.content)} />
                 </CardDescription>
                 <Button variant="outline" size="sm">
-                  Weiterlesen
+                  <a href={`/news/${item._id}`}>Weiterlesen</a>
                 </Button>
               </CardContent>
             </Card>

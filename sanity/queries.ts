@@ -45,6 +45,18 @@ export const newsQuery = groq`*[_type == "news"] {
 }
 `
 
+export const getNewsItemWithId = groq`*[_type == "news" && _id == $id][0] {
+    _id, 
+    title, 
+    date, 
+    category -> {
+      _id, 
+      category,
+    }, 
+    content, 
+}
+`
+
 export const homepageIntroductionQuery = groq`*[_type == "homepage"][0].introductionSection{
       h1IntroductionSection,
       textIntroductionSection,
