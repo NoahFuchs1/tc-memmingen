@@ -23,14 +23,20 @@ export default function Hero(heroSection: HeroSection) {
             size="lg"
             className="bg-red-600 hover:bg-red-700 text-white px-8 py-3"
           >
-            {buttonLinksHero}
+            <a href="/mitglied-werden">{buttonLinksHero}</a>
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="border-white text-white hover:bg-white hover:text-black px-8 py-3 bg-transparent"
           >
-            {buttonRechtsHero}
+            <a
+              href="https://tc-memmingen.tennisplatz.info/reservierung"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {buttonRechtsHero}
+            </a>
           </Button>
         </div>
       </div>

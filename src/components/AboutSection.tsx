@@ -17,7 +17,7 @@ export default function AboutSection(introductionSection: introductionSection) {
             </h2>
             <SanityText blocks={textIntroductionSection} />
             <Button className="bg-red-600 hover:bg-red-700">
-              Mitglied werden
+              <a href="/mitglied-werden">Mitglied werden</a>
             </Button>
           </div>
           <div className="relative w-full h-96">
