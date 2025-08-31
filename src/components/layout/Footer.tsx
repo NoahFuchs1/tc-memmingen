@@ -17,7 +17,6 @@ export default function Footer() {
 
               <span className="font-bold text-lg">TC Memmingen</span>
             </div>
-            <p className="text-gray-400">Dein Tennisverein in Memmingen.</p>
           </div>
           <div>
             <h3 className="font-semibold mb-4">Kontakt</h3>
