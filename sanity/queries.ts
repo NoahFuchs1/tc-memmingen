@@ -29,6 +29,11 @@ export const homepageNewsQuery = groq`*[_type == "homepage"][0].newsSection{
           category,
         }, 
         content, 
+        gallery[]{
+          "url": asset->url,
+          alt,
+          featured
+        }
       }
     }
 `
@@ -42,6 +47,11 @@ export const newsQuery = groq`*[_type == "news"] {
       category,
     }, 
     content, 
+    gallery[]{
+      "url": asset->url,
+      alt,
+      featured
+    }
 }
 `
 

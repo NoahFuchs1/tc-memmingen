@@ -1,16 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Calendar } from "lucide-react";
-import SanityText from "./ui/SanityText";
-import { News, NewsSectionType } from "../types/newsSection";
-import truncateBlocks from "../utils/helper";
+import { NewsSectionType } from "../types/newsSection";
+import NewsItemComponents from "./ui/NewsItemComponents";
 
 export default function NewsSection(newsSection: NewsSectionType) {
   const { h1NewsSection, subHeadlineNewsSection, newsNewsSection } =
@@ -27,29 +16,9 @@ export default function NewsSection(newsSection: NewsSectionType) {
             {subHeadlineNewsSection}
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newsNewsSection.map((item: News) => (
-            <Card key={item._id} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary">{item.category.category}</Badge>
-                  <span className="text-sm text-gray-500 flex items-center">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    {item.date}
-                  </span>
-                </div>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">
-                  <SanityText blocks={truncateBlocks(item.content)} />
-                </CardDescription>
-                <Button variant="outline" size="sm">
-                  <a href={`/news/${item._id}`}>Weiterlesen</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+
+        <div className="grid sm:w-[80%] md:w-full grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
+          <NewsItemComponents news={newsNewsSection} />
         </div>
       </div>
     </section>

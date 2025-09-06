@@ -3,15 +3,20 @@ import type { PortableTextBlock } from '@portabletext/types';
 export interface NewsSectionType {
     h1NewsSection: string;
     subHeadlineNewsSection: string;
-    newsNewsSection: News[];
+    newsNewsSection: NewsItem[];
 }
 
-export interface News {
+export interface NewsItem {
     _id: string;
     title: string;
     date: string;
     category: Category;
     content: PortableTextBlock[];
+    gallery: {
+        url: string;
+        alt?: string;
+        featured?: boolean;
+    }[];
 }
 
 interface Category {
