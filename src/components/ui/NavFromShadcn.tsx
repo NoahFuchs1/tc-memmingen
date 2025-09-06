@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { menuItems } from "./menuItems";
 
 import {
@@ -13,6 +12,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { getLink } from "@/src/utils/helper";
 
 export function NavFromShadcn() {
   return (
@@ -52,16 +52,4 @@ export function NavFromShadcn() {
       </NavigationMenuList>
     </NavigationMenu>
   );
-
-  function getLink(link: string, title: string, isNewTab: boolean) {
-    return (
-      <Link
-        href={link}
-        target={isNewTab ? "_blank" : "_self"}
-        rel={isNewTab ? "noopener noreferrer" : undefined}
-      >
-        {title}
-      </Link>
-    );
-  }
 }

@@ -6,11 +6,11 @@ import {
   SheetTrigger,
   SheetTitle,
   SheetHeader,
-  SheetDescription,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react"; // Icons Beispiel
 import { menuItems } from "./menuItems"; // Pfad anpassen
 import { SocialIcons } from "./SocialIcons";
+import { getLink } from "@/src/utils/helper";
 
 export function MobileMenu() {
   return (
@@ -33,14 +33,9 @@ export function MobileMenu() {
             {menuItems.map((item) => (
               <div key={item.title}>
                 {/* Item mit direktem Link */}
-                {item.href && !item.children && (
-                  <Link
-                    href={item.href}
-                    className="block font-semibold text-lg mb-2 text-gray-900 hover:underline"
-                  >
-                    {item.title}
-                  </Link>
-                )}
+                {item.href &&
+                  !item.children &&
+                  getLink(item.href, item.title, false)}
 
                 {/* Item mit Dropdown/Children */}
                 {item.children && (
@@ -49,12 +44,11 @@ export function MobileMenu() {
                     <ul className="pl-4 space-y-1">
                       {item.children.map((child, index) => (
                         <li key={`${child.href}-${index}`}>
-                          <Link
-                            href={child.href}
-                            className="text-sm text-gray-700 hover:underline block"
-                          >
-                            {child.text}
-                          </Link>
+                          {getLink(
+                            child.href!,
+                            child.text,
+                            child.isNewTab ?? false
+                          )}
                         </li>
                       ))}
                     </ul>

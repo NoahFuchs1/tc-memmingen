@@ -9,8 +9,8 @@ import { NewsItem } from "@/src/types/newsSection";
 import { Calendar } from "lucide-react";
 import SanityText from "./SanityText";
 import { Button } from "@/components/ui/button";
-import truncateBlocks from "@/src/utils/helper";
 import { Badge } from "@/components/ui/badge";
+import { truncateBlocks } from "@/src/utils/helper";
 
 type props = {
   news: NewsItem[];

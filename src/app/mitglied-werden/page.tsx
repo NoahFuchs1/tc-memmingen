@@ -24,12 +24,15 @@ export default function MitgliedWerden() {
           size="lg"
           className="bg-red-600 hover:bg-red-700 text-white px-8 py-3"
         >
-          <a href="/Mitgliedsantrag-2.pdf" download>
+          <a
+            href="https://tc-memmingen.vercel.app/Mitgliedsantrag-2.pdf"
+            download
+          >
             Mitgliedsantrag herunterladen
           </a>
         </Button>
         <iframe
-          className="w-[100%] h-[800px] my-8"
+          className="w-[90%] sm:w-full h-[800px] my-8"
           src="/Mitgliedsantrag-2.pdf"
         ></iframe>
       </div>
