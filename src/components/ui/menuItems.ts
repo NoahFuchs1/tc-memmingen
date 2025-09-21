@@ -12,11 +12,7 @@ type MenuItem = {
 export const menuItems: MenuItem[] = [
   {
     title: "Termine & News",
-    children: [
-      { text: "Termine & Bildergalerie", href: "/news" },
-      { text: "Aktuelle News & Newsarchiv", href: "/news" },
-      { text: "Pressemitteilungen / Presselinks", href: "/news" },
-    ],
+    href: "/news",
   },
   {
     title: "Tennisangebote",

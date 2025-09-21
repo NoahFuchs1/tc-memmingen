@@ -31,7 +31,13 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Schnelllinks</h3>
             <div className="space-y-2">
               <Link
-                href="http://tc-memmingen.tennisplatz.info/reservierung"
+                href="/mitglied-werden"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                Mitglied werden
+              </Link>
+              <Link
+                href="https://tc-memmingen.tennisplatz.info/reservierung"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-gray-400 hover:text-white transition-colors"
@@ -39,7 +45,7 @@ export default function Footer() {
                 Platz buchen
               </Link>
               <Link
-                href="/https://www.atg-mm.de/"
+                href="https://www.atg-mm.de/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-gray-400 hover:text-white transition-colors"
