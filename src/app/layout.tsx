@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "TC-Memmingen",
   description: "Wir lieben Tennis!",
+  icons: {
+    icon: "/images/Logo.webp",
+  },
 };
 
 export default function RootLayout({
