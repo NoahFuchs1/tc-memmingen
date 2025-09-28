@@ -30,8 +30,8 @@ export default async function NewsPage() {
             Vereinsnachrichten
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Alle aktuellen Neuigkeiten, Ereignisse und Entwicklungen aus dem TC
-            Memmingen
+            Alle aktuellen Neuigkeiten, Ereignisse und Entwicklungen aus dem
+            Verein
           </p>
         </div>
 
